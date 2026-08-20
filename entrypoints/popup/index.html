@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bili CDN</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1 id="page-title">节点优选</h1>
+        <div class="header-actions">
+          <div id="selected-stat" class="selected-stat">
+            <strong id="selected-count">—</strong><span>已选</span>
+          </div>
+          <label class="master-switch" title="启用 Bili CDN">
+            <input id="enabled" type="checkbox" aria-label="启用 Bili CDN" />
+            <span></span>
+          </label>
+          <button id="settings" class="icon-button" type="button" aria-label="测速设置">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21h-4v-.08A1.7 1.7 0 0 0 8.94 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.57 15 1.7 1.7 0 0 0 3 14H3v-4h.08A1.7 1.7 0 0 0 4.6 8.94a1.7 1.7 0 0 0-.34-1.88L4.2 7l2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.57 1.7 1.7 0 0 0 10 3V3h4v.08A1.7 1.7 0 0 0 15.06 4.6a1.7 1.7 0 0 0 1.88-.34L17 4.2 19.8 7l-.06.06a1.7 1.7 0 0 0-.34 1.88A1.7 1.7 0 0 0 21 10h.08v4H21a1.7 1.7 0 0 0-1.6 1Z"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div id="guide" class="guide" hidden>
+        <span id="guide-message"></span>
+        <button id="guide-action" type="button" hidden></button>
+      </div>
+
+      <div id="tree" class="tree" role="tree" aria-label="CDN 节点范围"></div>
+      <div id="empty" class="empty" hidden>没有匹配的运营商或地区</div>
+
+      <section id="settings-panel" class="settings-panel" hidden>
+        <div class="settings-grid">
+          <label class="setting-toggle">
+            <span>
+              <strong>拦截 MCDN</strong>
+              <small>拦截 *.mcdn.bilivideo.cn 和 *.edge.mountaintoys.cn</small>
+            </span>
+            <span class="master-switch">
+              <input id="intercept-mcdn" type="checkbox" />
+              <span></span>
+            </span>
+          </label>
+          <label class="setting-toggle">
+            <span>
+              <strong>动态切换节点</strong>
+              <small>节点选择实时生效，但会略微增加性能消耗</small>
+            </span>
+            <span class="master-switch">
+              <input id="dynamic-interception" type="checkbox" />
+              <span></span>
+            </span>
+          </label>
+          <label class="setting-field">
+            <span>最大延迟</span>
+            <div><input id="max-latency" type="number" min="10" max="60000" step="10" /><b>ms</b></div>
+          </label>
+          <label class="setting-field">
+            <span>最低速度</span>
+            <div><input id="min-speed" type="number" min="0" max="10000" step="0.1" /><b>Mbps</b></div>
+          </label>
+          <label class="setting-field">
+            <span>时间上限</span>
+            <div><input id="timeout" type="number" min="200" max="60000" step="100" /><b>ms</b></div>
+          </label>
+          <label class="setting-field">
+            <span>测速样本大小</span>
+            <div><input id="sample-size" type="number" min="0.25" max="16" step="0.25" /><b>MB</b></div>
+          </label>
+        </div>
+      </section>
+
+      <div id="progress-track" class="progress-track" hidden><div id="progress"></div></div>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
