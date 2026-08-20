@@ -5,7 +5,7 @@ import {
 } from "../../utils/constants";
 import {
   getAllDomains,
-  getRecommendedRegionIds,
+  getDefaultRegionIds,
   loadNodeData,
   resolveDomains,
 } from "../../utils/nodes";
@@ -682,7 +682,7 @@ function expandInitialRegions(regionIds: string[]): void {
   expandedRegions.add(regionId);
 }
 
-function createRecommendationGuide(regionIds: string[]): string {
+function createDefaultGuide(regionIds: string[]): string {
   const groups = new Map<string, string[]>();
   for (const id of regionIds) {
     const [providerId, regionId] = id.split("/", 2);
@@ -698,8 +698,8 @@ function createRecommendationGuide(regionIds: string[]): string {
     .map(([provider, regions]) => `${provider} · ${regions.join("、")}`)
     .join("；");
   return recommendation
-    ? `已根据当前网络自动勾选 ${recommendation}，请点击地区右侧“优选”后启用`
-    : "已根据当前网络自动勾选推荐节点，请先完成地区优选后启用";
+    ? `已默认勾选 ${recommendation}，请点击地区右侧“优选”后启用`
+    : "已默认勾选云服务节点，请先完成地区优选后启用";
 }
 
 function revealBenchmarkDomain(domain: string): void {
@@ -750,10 +750,9 @@ async function initialize(): Promise<void> {
       initialRegionIds = stored.selectedRegionIds;
       selectedDomains = new Set(resolveDomains(data, initialRegionIds));
     } else {
-      setStatus("正在根据当前网络选择默认节点…");
-      initialRegionIds = await getRecommendedRegionIds(data);
+      initialRegionIds = getDefaultRegionIds(data);
       selectedDomains = new Set(resolveDomains(data, initialRegionIds));
-      guideMessage = createRecommendationGuide(initialRegionIds);
+      guideMessage = createDefaultGuide(initialRegionIds);
     }
 
     activeDomains = stored?.activeDomains?.filter((domain) => allDomains.has(domain)) ?? [];

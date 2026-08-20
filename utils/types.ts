@@ -50,10 +50,3 @@ export interface BenchmarkSettings {
   timeoutMs: number;
   sampleSizeKb: number;
 }
-
-export interface ZoneData {
-  country: string;
-  province: string;
-  city: string;
-  isp: string;
-}

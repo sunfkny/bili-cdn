@@ -1,5 +1,5 @@
 import { CONFIG_EVENT, STORAGE_KEY } from "../utils/constants";
-import { getRecommendedRegionIds, loadNodeData, resolveDomains } from "../utils/nodes";
+import { getDefaultRegionIds, loadNodeData, resolveDomains } from "../utils/nodes";
 import type { CdnRuntimeConfig, CdnSettings } from "../utils/types";
 
 const matches = [
@@ -39,7 +39,7 @@ export default defineContentScript({
       const data = await loadNodeData();
       const selectedRegionIds = stored?.selectedRegionIds?.length
         ? stored.selectedRegionIds
-        : await getRecommendedRegionIds(data);
+        : getDefaultRegionIds(data);
       domains = stored?.selectedDomains?.length
         ? stored.selectedDomains
         : resolveDomains(data, selectedRegionIds);

@@ -2,13 +2,10 @@ import { STORAGE_KEY } from "../utils/constants";
 import type { CdnSettings } from "../utils/types";
 
 const BENCHMARK_HEADER_RULE_ID = 1;
-const CDN_ALLOW_RULE_ID = 2;
+const CDN_TARGET_ALLOW_RULE_ID = 2;
 const CDN_REDIRECT_RULE_ID = 3;
-const RULE_IDS = [
-  BENCHMARK_HEADER_RULE_ID,
-  CDN_ALLOW_RULE_ID,
-  CDN_REDIRECT_RULE_ID,
-];
+const MCDN_ALLOW_RULE_ID = 6;
+const RULE_IDS = [1, 2, 3, 4, 5, 6];
 
 export default defineBackground(() => {
   async function refreshNetworkRules(): Promise<void> {
@@ -57,8 +54,8 @@ export default defineBackground(() => {
       }
       addRules.push(
         {
-          id: CDN_ALLOW_RULE_ID,
-          priority: 2,
+          id: CDN_TARGET_ALLOW_RULE_ID,
+          priority: 3,
           action: { type: "allow" },
           condition: {
             requestDomains: activeDomains,
@@ -84,6 +81,18 @@ export default defineBackground(() => {
           },
         },
       );
+      if (stored?.interceptMcdn === false) {
+        addRules.push({
+          id: MCDN_ALLOW_RULE_ID,
+          priority: 2,
+          action: { type: "allow" },
+          condition: {
+            requestDomains: ["bilivideo.com"],
+            regexFilter: "[?&]os=mcdn([&#]|$)",
+            initiatorDomains: ["bilibili.com", "biligame.com"],
+          },
+        });
+      }
     }
 
     await browser.declarativeNetRequest.updateDynamicRules({
