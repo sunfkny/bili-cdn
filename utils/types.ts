@@ -31,8 +31,6 @@ export interface CdnSettings {
 
 export interface CdnRuntimeConfig {
   activeDomains: string[];
-  interceptMcdn: boolean;
-  dynamicRequestInterception: boolean;
 }
 
 export interface BenchmarkResult {

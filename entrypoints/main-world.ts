@@ -12,8 +12,6 @@ export default defineUnlistedScript(() => {
 
   let activeDomains = readInitialDomains();
   let activeDomainSet = new Set(activeDomains);
-  let dynamicRequestInterception =
-    document.currentScript?.dataset.dynamicRequestInterception !== "false";
 
   function readInitialDomains(): string[] {
     const raw = document.currentScript?.dataset.domains;
@@ -35,7 +33,6 @@ export default defineUnlistedScript(() => {
       (domain): domain is string => typeof domain === "string",
     );
     activeDomainSet = new Set(activeDomains);
-    dynamicRequestInterception = config.dynamicRequestInterception !== false;
     log(`已载入 ${activeDomains.length} 个 CDN 节点`);
   });
 
@@ -132,7 +129,7 @@ export default defineUnlistedScript(() => {
   }
 
   function transformPlayInfo(playInfo: JsonRecord): void {
-    if (activeDomains.length === 0 || dynamicRequestInterception) return;
+    if (activeDomains.length === 0) return;
     if (playInfo.code !== undefined && playInfo.code !== 0) {
       error("Failed to get playInfo, message:", playInfo.message);
       return;

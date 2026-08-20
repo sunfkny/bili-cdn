@@ -31,9 +31,6 @@ export default defineContentScript({
       | undefined;
     const enabled = Boolean(stored?.enabled && stored.activeDomains?.length);
     let domains = enabled ? stored?.activeDomains : [];
-    const interceptMcdn = stored?.interceptMcdn !== false;
-    const dynamicRequestInterception =
-      stored?.dynamicRequestInterception !== false;
 
     if (enabled && !domains) {
       const data = await loadNodeData();
@@ -49,10 +46,6 @@ export default defineContentScript({
       keepInDom: true,
       modifyScript(script) {
         script.dataset.domains = JSON.stringify(domains);
-        script.dataset.interceptMcdn = String(interceptMcdn);
-        script.dataset.dynamicRequestInterception = String(
-          dynamicRequestInterception,
-        );
       },
     });
 
@@ -63,9 +56,6 @@ export default defineContentScript({
         const config: CdnRuntimeConfig = {
           activeDomains:
             settings.enabled === false ? [] : settings.activeDomains,
-          interceptMcdn: settings.interceptMcdn !== false,
-          dynamicRequestInterception:
-            settings.dynamicRequestInterception !== false,
         };
         window.dispatchEvent(
           new CustomEvent(CONFIG_EVENT, {

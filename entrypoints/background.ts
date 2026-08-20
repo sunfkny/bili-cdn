@@ -5,7 +5,8 @@ const BENCHMARK_HEADER_RULE_ID = 1;
 const CDN_TARGET_ALLOW_RULE_ID = 2;
 const CDN_REDIRECT_RULE_ID = 3;
 const MCDN_ALLOW_RULE_ID = 6;
-const RULE_IDS = [1, 2, 3, 4, 5, 6];
+const CDN_RESOURCE_BLOCK_RULE_ID = 7;
+const RULE_IDS = [1, 2, 3, 4, 5, 6, 7];
 
 export default defineBackground(() => {
   async function refreshNetworkRules(): Promise<void> {
@@ -53,6 +54,20 @@ export default defineBackground(() => {
         requestDomains.push("mcdn.bilivideo.cn", "edge.mountaintoys.cn");
       }
       addRules.push(
+        {
+          id: CDN_RESOURCE_BLOCK_RULE_ID,
+          priority: 4,
+          action: { type: "block" },
+          condition: {
+            requestDomains: [
+              "bilivideo.com",
+              "mcdn.bilivideo.cn",
+              "edge.mountaintoys.cn",
+            ],
+            regexFilter: "^https?://[^/]+(:[0-9]+)?/v1/resource/",
+            initiatorDomains: ["bilibili.com", "biligame.com"],
+          },
+        },
         {
           id: CDN_TARGET_ALLOW_RULE_ID,
           priority: 3,

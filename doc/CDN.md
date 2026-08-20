@@ -8,7 +8,7 @@
 | --- | --- | --- | --- |
 | Mirror | `upos-(sz\|hz\|bstar)-mirror*.bilivideo.com` | `ali`、`cos`、`hw` 等 | 默认替换为选择的节点 |
 | UPOS 对象存储 | `upos-sz-estg*.bilivideo.com` | `upos` | 默认替换为选择的节点 |
-| BCache | `cn-*.bilivideo.com` 或 `cn-*.bilivideo.cn` | `bcache` | 动态切换节点开启时替换 |
+| BCache | `cn-*.bilivideo.com` 或 `cn-*.bilivideo.cn` | `bcache` | 播放信息改写，动态规则兜底 |
 | MCDN | MCDN 域名，或其他域名携带 `os=mcdn` | `mcdn` | 由“拦截 MCDN”控制 |
 | PCDN 资源 | `http://IP:Port/v1/resource/*` | 不固定 | 播放数据回退逻辑会移除该地址 |
 | 免流 | `(upos\|proxy).*-tf-*.bilivideo.com` | 不固定 | 部分签名和免流规则与普通 CDN 不同 |
