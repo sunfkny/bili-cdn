@@ -36,7 +36,6 @@ const maxLatencyInput = getElement<HTMLInputElement>("max-latency");
 const minSpeedInput = getElement<HTMLInputElement>("min-speed");
 const timeoutInput = getElement<HTMLInputElement>("timeout");
 const sampleSizeInput = getElement<HTMLInputElement>("sample-size");
-const interceptMcdnInput = getElement<HTMLInputElement>("intercept-mcdn");
 const dynamicInterceptionInput = getElement<HTMLInputElement>(
   "dynamic-interception",
 );
@@ -49,7 +48,6 @@ let benchmarkSettings: BenchmarkSettings;
 let selectedDomains = new Set<string>();
 let activeDomains: string[] = [];
 let enabled = true;
-let interceptMcdn = true;
 let dynamicRequestInterception = true;
 let guideMessage = "请先完成地区优选，再启用 Bili CDN";
 let benchmarkResults: Record<string, BenchmarkResult> = {};
@@ -476,7 +474,6 @@ async function saveSettings(
     selectedDomains: [...selectedDomains],
     activeDomains,
     enabled,
-    interceptMcdn,
     dynamicRequestInterception,
     benchmarkResults,
     optimizedAt: nextOptimizedAt,
@@ -757,10 +754,8 @@ async function initialize(): Promise<void> {
 
     activeDomains = stored?.activeDomains?.filter((domain) => allDomains.has(domain)) ?? [];
     enabled = Boolean(stored?.enabled && stored?.activeDomains?.length);
-    interceptMcdn = stored?.interceptMcdn !== false;
     dynamicRequestInterception = stored?.dynamicRequestInterception !== false;
     enabledInput.checked = enabled;
-    interceptMcdnInput.checked = interceptMcdn;
     dynamicInterceptionInput.checked = dynamicRequestInterception;
     benchmarkResults = stored?.benchmarkResults ?? {};
     optimizedAt = stored?.optimizedAt;
@@ -793,14 +788,11 @@ guideAction.addEventListener("click", async () => {
     window.close();
   }
 });
-[interceptMcdnInput, dynamicInterceptionInput].forEach((input) => {
-  input.addEventListener("change", () => {
-    interceptMcdn = interceptMcdnInput.checked;
-    dynamicRequestInterception = dynamicInterceptionInput.checked;
-    if (dynamicRequestInterception) refreshRequired = false;
-    void saveSettings(activeDomains);
-    updateGuide();
-  });
+dynamicInterceptionInput.addEventListener("change", () => {
+  dynamicRequestInterception = dynamicInterceptionInput.checked;
+  if (dynamicRequestInterception) refreshRequired = false;
+  void saveSettings(activeDomains);
+  updateGuide();
 });
 [
   maxLatencyInput,

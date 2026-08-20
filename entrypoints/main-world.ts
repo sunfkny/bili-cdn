@@ -66,21 +66,35 @@ export default defineUnlistedScript(() => {
     return hostname;
   }
 
+  function shouldBlockUrl(value: unknown): value is string {
+    if (typeof value !== "string") return false;
+    try {
+      const url = new URL(value);
+      return (
+        url.pathname.startsWith("/v1/resource/") ||
+        url.hostname.endsWith("mcdn.bilivideo.cn") ||
+        url.hostname.endsWith("edge.mountaintoys.cn") ||
+        url.searchParams.get("os") === "mcdn"
+      );
+    } catch {
+      return false;
+    }
+  }
+
   function replaceUrl(url: unknown, host = getCdnDomain()): unknown {
     if (!host || typeof url !== "string") return url;
 
     const parsed = new URL(url);
     const normalizedHostname = normalizeHostname(parsed.hostname);
     const os = parsed.searchParams.get("os");
-    if (activeDomainSet.has(parsed.hostname)) return url;
-
-    if (parsed.pathname.startsWith("/v1/resource/")) {
+    if (shouldBlockUrl(url)) {
       if (!seenMcdnV1Hostnames.has(normalizedHostname)) {
         seenMcdnV1Hostnames.add(normalizedHostname);
-        debug(`os=${os} mcdn v1 resource ${normalizedHostname} -> undefined`);
+        debug(`os=${os} blocked ${normalizedHostname} -> undefined`);
       }
       return undefined;
     }
+    if (activeDomainSet.has(parsed.hostname)) return url;
 
     if (parsed.port && parsed.port !== "443") {
       parsed.host = host;
@@ -135,21 +149,34 @@ export default defineUnlistedScript(() => {
       return;
     }
 
-    const transformDashItem = (item: JsonRecord) => {
+    const transformDashItem = (item: JsonRecord): boolean => {
       const baseUrl = item.baseUrl ?? item.base_url;
       const backupUrls = item.backupUrl ?? item.backup_url ?? [];
       const allUrls = [baseUrl, ...(Array.isArray(backupUrls) ? backupUrls : [])];
-      const nextBaseUrl = createBaseUrl(allUrls);
-      if (!nextBaseUrl) return;
-      const nextBackupUrls = createBackupUrls(allUrls);
-      item.baseUrl = nextBaseUrl;
-      item.base_url = nextBaseUrl;
-      item.backupUrl = nextBackupUrls;
-      item.backup_url = nextBackupUrls;
+      const sourceUrls = allUrls.filter(
+        (url): url is string => typeof url === "string" && !shouldBlockUrl(url),
+      );
+      if (sourceUrls.length === 0) return false;
+      const nextBaseUrl = createBaseUrl(sourceUrls);
+      if (nextBaseUrl) {
+        const nextBackupUrls = createBackupUrls(sourceUrls);
+        item.baseUrl = nextBaseUrl;
+        item.base_url = nextBaseUrl;
+        item.backupUrl = nextBackupUrls;
+        item.backup_url = nextBackupUrls;
+      } else if (sourceUrls.length < allUrls.length) {
+        const [nextSourceUrl, ...nextBackupUrls] = sourceUrls;
+        item.baseUrl = nextSourceUrl;
+        item.base_url = nextSourceUrl;
+        item.backupUrl = nextBackupUrls;
+        item.backup_url = nextBackupUrls;
+      }
+      return true;
     };
 
-    const transformDurl = (item: JsonRecord) => {
+    const transformDurl = (item: JsonRecord): boolean => {
       item.url = replaceUrl(item.url);
+      return typeof item.url === "string";
     };
 
     let videoInfo: JsonRecord | undefined;
@@ -162,10 +189,14 @@ export default defineUnlistedScript(() => {
         if (playInfo.result.durl || playInfo.result.durls) {
           videoInfo = playInfo.result;
         }
-        videoInfo?.durl?.forEach(transformDurl);
-        videoInfo?.durls?.forEach((group: JsonRecord) =>
-          group.durl?.forEach(transformDurl),
-        );
+        if (Array.isArray(videoInfo?.durl)) {
+          videoInfo.durl = videoInfo.durl.filter(transformDurl);
+        }
+        videoInfo?.durls?.forEach((group: JsonRecord) => {
+          if (Array.isArray(group.durl)) {
+            group.durl = group.durl.filter(transformDurl);
+          }
+        });
         return;
       }
     } else {
@@ -174,11 +205,15 @@ export default defineUnlistedScript(() => {
     }
 
     try {
-      videoInfo?.dash?.video?.forEach(transformDashItem);
-      videoInfo?.dash?.audio?.forEach(transformDashItem);
+      if (Array.isArray(videoInfo?.dash?.video)) {
+        videoInfo.dash.video = videoInfo.dash.video.filter(transformDashItem);
+      }
+      if (Array.isArray(videoInfo?.dash?.audio)) {
+        videoInfo.dash.audio = videoInfo.dash.audio.filter(transformDashItem);
+      }
     } catch (cause) {
-      if (videoInfo?.durl) {
-        videoInfo.durl.forEach(transformDurl);
+      if (Array.isArray(videoInfo?.durl)) {
+        videoInfo.durl = videoInfo.durl.filter(transformDurl);
       } else {
         error("ERR:", cause);
       }

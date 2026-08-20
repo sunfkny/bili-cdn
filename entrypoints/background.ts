@@ -4,9 +4,10 @@ import type { CdnSettings } from "../utils/types";
 const BENCHMARK_HEADER_RULE_ID = 1;
 const CDN_TARGET_ALLOW_RULE_ID = 2;
 const CDN_REDIRECT_RULE_ID = 3;
-const MCDN_ALLOW_RULE_ID = 6;
 const CDN_RESOURCE_BLOCK_RULE_ID = 7;
-const RULE_IDS = [1, 2, 3, 4, 5, 6, 7];
+const MCDN_DOMAIN_BLOCK_RULE_ID = 8;
+const MCDN_QUERY_BLOCK_RULE_ID = 9;
+const RULE_IDS = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export default defineBackground(() => {
   async function refreshNetworkRules(): Promise<void> {
@@ -14,9 +15,10 @@ export default defineBackground(() => {
       | CdnSettings
       | undefined;
     const activeDomains = stored?.activeDomains?.filter(Boolean) ?? [];
+    const extensionEnabled = Boolean(stored?.enabled && activeDomains.length);
     const dynamicInterceptionEnabled = Boolean(
-      stored?.enabled &&
-        stored.dynamicRequestInterception !== false &&
+      extensionEnabled &&
+        stored?.dynamicRequestInterception !== false &&
         activeDomains.length,
     );
     const addRules: NonNullable<
@@ -47,12 +49,7 @@ export default defineBackground(() => {
       },
     ];
 
-    if (dynamicInterceptionEnabled) {
-      const targetDomain = activeDomains[0]!;
-      const requestDomains = ["bilivideo.com"];
-      if (stored?.interceptMcdn !== false) {
-        requestDomains.push("mcdn.bilivideo.cn", "edge.mountaintoys.cn");
-      }
+    if (extensionEnabled) {
       addRules.push(
         {
           id: CDN_RESOURCE_BLOCK_RULE_ID,
@@ -68,6 +65,31 @@ export default defineBackground(() => {
             initiatorDomains: ["bilibili.com", "biligame.com"],
           },
         },
+        {
+          id: MCDN_DOMAIN_BLOCK_RULE_ID,
+          priority: 4,
+          action: { type: "block" },
+          condition: {
+            requestDomains: ["mcdn.bilivideo.cn", "edge.mountaintoys.cn"],
+            initiatorDomains: ["bilibili.com", "biligame.com"],
+          },
+        },
+        {
+          id: MCDN_QUERY_BLOCK_RULE_ID,
+          priority: 4,
+          action: { type: "block" },
+          condition: {
+            requestDomains: ["bilivideo.com"],
+            regexFilter: "[?&]os=mcdn([&#]|$)",
+            initiatorDomains: ["bilibili.com", "biligame.com"],
+          },
+        },
+      );
+    }
+
+    if (dynamicInterceptionEnabled) {
+      const targetDomain = activeDomains[0]!;
+      addRules.push(
         {
           id: CDN_TARGET_ALLOW_RULE_ID,
           priority: 3,
@@ -91,23 +113,11 @@ export default defineBackground(() => {
             },
           },
           condition: {
-            requestDomains,
+            requestDomains: ["bilivideo.com"],
             initiatorDomains: ["bilibili.com", "biligame.com"],
           },
         },
       );
-      if (stored?.interceptMcdn === false) {
-        addRules.push({
-          id: MCDN_ALLOW_RULE_ID,
-          priority: 2,
-          action: { type: "allow" },
-          condition: {
-            requestDomains: ["bilivideo.com"],
-            regexFilter: "[?&]os=mcdn([&#]|$)",
-            initiatorDomains: ["bilibili.com", "biligame.com"],
-          },
-        });
-      }
     }
 
     await browser.declarativeNetRequest.updateDynamicRules({
