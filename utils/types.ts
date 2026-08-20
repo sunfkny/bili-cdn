@@ -22,7 +22,6 @@ export interface CdnSettings {
   selectedDomains: string[];
   selectedRegionIds?: string[];
   activeDomains: string[];
-  enabled?: boolean;
   dynamicRequestInterception?: boolean;
   benchmarkResults?: Record<string, BenchmarkResult>;
   optimizedAt?: number;

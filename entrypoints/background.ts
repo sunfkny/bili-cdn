@@ -15,7 +15,7 @@ export default defineBackground(() => {
       | CdnSettings
       | undefined;
     const activeDomains = stored?.activeDomains?.filter(Boolean) ?? [];
-    const extensionEnabled = Boolean(stored?.enabled && activeDomains.length);
+    const extensionEnabled = activeDomains.length > 0;
     const dynamicInterceptionEnabled = Boolean(
       extensionEnabled &&
         stored?.dynamicRequestInterception !== false &&

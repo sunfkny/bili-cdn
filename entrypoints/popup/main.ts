@@ -27,8 +27,6 @@ const empty = getElement<HTMLDivElement>("empty");
 const settingsButton = getElement<HTMLButtonElement>("settings");
 const settingsPanel = getElement<HTMLElement>("settings-panel");
 const pageTitle = getElement<HTMLElement>("page-title");
-const selectedStat = getElement<HTMLElement>("selected-stat");
-const enabledInput = getElement<HTMLInputElement>("enabled");
 const guide = getElement<HTMLElement>("guide");
 const guideMessageElement = getElement<HTMLElement>("guide-message");
 const guideAction = getElement<HTMLButtonElement>("guide-action");
@@ -41,15 +39,12 @@ const dynamicInterceptionInput = getElement<HTMLInputElement>(
 );
 const progressTrack = getElement<HTMLDivElement>("progress-track");
 const progress = getElement<HTMLDivElement>("progress");
-const selectedCount = getElement<HTMLElement>("selected-count");
 
 let data: BcdnData;
 let benchmarkSettings: BenchmarkSettings;
 let selectedDomains = new Set<string>();
 let activeDomains: string[] = [];
-let enabled = true;
 let dynamicRequestInterception = true;
-let guideMessage = "请先完成地区优选，再启用 Bili CDN";
 let benchmarkResults: Record<string, BenchmarkResult> = {};
 let optimizedAt: number | undefined;
 const expandedProviders = new Set<string>();
@@ -65,9 +60,7 @@ const benchmarkingDomains = new Set<string>();
 let busy = false;
 let settingsVisible = false;
 let settingsSaveTimer: ReturnType<typeof setTimeout> | undefined;
-let currentTabId: number | undefined;
 let currentTabIsBilibili = true;
-let refreshRequired = false;
 let errorMessage = "";
 
 function getElement<T extends HTMLElement>(id: string): T {
@@ -85,7 +78,6 @@ function setStatus(message: string, isError = false): void {
 
 function setBusy(value: boolean): void {
   busy = value;
-  enabledInput.disabled = value || !canEnable();
   metricElements.forEach((element) => {
     if (element instanceof HTMLButtonElement) element.disabled = value;
   });
@@ -391,23 +383,7 @@ function selectionChanged(): void {
   void applySelectionImmediately();
 }
 
-function canEnable(): boolean {
-  return Boolean(optimizedAt && activeDomains.length > 0);
-}
-
 function updateCounts(): void {
-  selectedCount.textContent = String(selectedDomains.size);
-  selectedStat.title = optimizedAt
-    ? `上次优选：${new Date(optimizedAt).toLocaleString("zh-CN")}`
-    : "尚未优选";
-  if (!canEnable()) {
-    enabled = false;
-    enabledInput.checked = false;
-  }
-  enabledInput.disabled = busy || !canEnable();
-  enabledInput.parentElement!.title = canEnable()
-    ? "启用 Bili CDN"
-    : "请先完成地区优选";
   updateGuide();
 }
 
@@ -432,16 +408,12 @@ function updateGuide(): void {
     guide.hidden = false;
     return;
   }
-  if (refreshRequired) {
-    guideMessageElement.textContent = "开关状态已更新，刷新当前页面后生效";
-    guideAction.textContent = "刷新页面";
-    guideAction.dataset.action = "refresh";
-    guideAction.hidden = false;
+  if (selectedDomains.size === 0) {
+    guideMessageElement.textContent = "未选择节点，Bili CDN 不会生效";
     guide.hidden = false;
     return;
   }
-  guideMessageElement.textContent = guideMessage;
-  guide.hidden = Boolean(optimizedAt);
+  guide.hidden = true;
 }
 
 function isBilibiliUrl(url: string | undefined): boolean {
@@ -460,7 +432,6 @@ function isBilibiliUrl(url: string | undefined): boolean {
 
 async function loadCurrentTab(): Promise<void> {
   const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
-  currentTabId = tab?.id;
   currentTabIsBilibili = isBilibiliUrl(tab?.url);
 }
 
@@ -473,7 +444,6 @@ async function saveSettings(
   const settings: CdnSettings = {
     selectedDomains: [...selectedDomains],
     activeDomains,
-    enabled,
     dynamicRequestInterception,
     benchmarkResults,
     optimizedAt: nextOptimizedAt,
@@ -500,7 +470,6 @@ async function benchmarkSingleDomain(domain: string): Promise<void> {
     const nextActiveDomains = result.status === "passed"
       ? activeDomains
       : getAllDomains(data).filter((item) => selectedDomains.has(item));
-    if (nextActiveDomains.length === 0) enabled = false;
     await saveSettings(nextActiveDomains);
     result.status === "passed" ? updateMetrics(domain) : renderTree();
     if (result.status === "failed") {
@@ -679,26 +648,6 @@ function expandInitialRegions(regionIds: string[]): void {
   expandedRegions.add(regionId);
 }
 
-function createDefaultGuide(regionIds: string[]): string {
-  const groups = new Map<string, string[]>();
-  for (const id of regionIds) {
-    const [providerId, regionId] = id.split("/", 2);
-    if (!providerId || !regionId) continue;
-    const provider = data.results[providerId];
-    const region = provider?.regions[regionId];
-    if (!provider || !region) continue;
-    const regions = groups.get(provider.name) ?? [];
-    regions.push(region.name);
-    groups.set(provider.name, regions);
-  }
-  const recommendation = [...groups]
-    .map(([provider, regions]) => `${provider} · ${regions.join("、")}`)
-    .join("；");
-  return recommendation
-    ? `已默认勾选 ${recommendation}，请点击地区右侧“优选”后启用`
-    : "已默认勾选云服务节点，请先完成地区优选后启用";
-}
-
 function revealBenchmarkDomain(domain: string): void {
   const location = domainLocations.get(domain);
   if (!location) {
@@ -749,13 +698,10 @@ async function initialize(): Promise<void> {
     } else {
       initialRegionIds = getDefaultRegionIds(data);
       selectedDomains = new Set(resolveDomains(data, initialRegionIds));
-      guideMessage = createDefaultGuide(initialRegionIds);
     }
 
     activeDomains = stored?.activeDomains?.filter((domain) => allDomains.has(domain)) ?? [];
-    enabled = Boolean(stored?.enabled && stored?.activeDomains?.length);
     dynamicRequestInterception = stored?.dynamicRequestInterception !== false;
-    enabledInput.checked = enabled;
     dynamicInterceptionInput.checked = dynamicRequestInterception;
     benchmarkResults = stored?.benchmarkResults ?? {};
     optimizedAt = stored?.optimizedAt;
@@ -768,29 +714,14 @@ async function initialize(): Promise<void> {
 }
 
 settingsButton.addEventListener("click", toggleSettings);
-enabledInput.addEventListener("change", async () => {
-  if (!canEnable()) {
-    enabledInput.checked = false;
-    return;
-  }
-  enabled = enabledInput.checked;
-  await saveSettings(activeDomains);
-  refreshRequired = !dynamicRequestInterception;
-  updateGuide();
-});
 guideAction.addEventListener("click", async () => {
   if (guideAction.dataset.action === "open") {
     await browser.tabs.create({ url: "https://www.bilibili.com/" });
     return;
   }
-  if (guideAction.dataset.action === "refresh" && currentTabId !== undefined) {
-    await browser.tabs.reload(currentTabId);
-    window.close();
-  }
 });
 dynamicInterceptionInput.addEventListener("change", () => {
   dynamicRequestInterception = dynamicInterceptionInput.checked;
-  if (dynamicRequestInterception) refreshRequired = false;
   void saveSettings(activeDomains);
   updateGuide();
 });

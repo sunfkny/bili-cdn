@@ -26,22 +26,21 @@ body {
 main {
   display: flex;
   height: 600px;
-  padding: 11px 12px;
+  padding: 8px 8px;
   flex-direction: column;
   overflow: hidden;
 }
 
 header {
   display: flex;
-  min-height: 46px;
+  min-height: 32px;
   align-items: center;
   gap: 9px;
 }
 
 h1 {
   margin: 0;
-  font-size: 24px;
-  letter-spacing: -0.04em;
+  font-size: 16px;
 }
 
 .header-actions {
@@ -49,20 +48,6 @@ h1 {
   margin-left: auto;
   align-items: center;
   gap: 9px;
-}
-
-.selected-stat {
-  display: grid;
-  color: #8a95a5;
-  font-size: 9px;
-  text-align: right;
-  cursor: help;
-}
-
-.selected-stat strong {
-  color: #263244;
-  font-size: 14px;
-  font-variant-numeric: tabular-nums;
 }
 
 .master-switch {
@@ -179,15 +164,16 @@ h1 {
 
 .tree {
   min-height: 0;
-  padding: 1px 3px 7px 0;
-  overflow: auto;
+  padding: 6px 0 0;
+  overflow-x: hidden;
+  overflow-y: auto;
   flex: 1;
   scrollbar-color: #cbd3de transparent;
   scrollbar-width: thin;
 }
 
 .provider {
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   overflow: hidden;
   border: 1px solid #e1e7ef;
   border-radius: 11px;
@@ -202,7 +188,7 @@ h1 {
 }
 
 .provider-row {
-  min-height: 35px;
+  min-height: 29px;
   padding: 0 9px 0 5px;
 }
 
@@ -451,7 +437,7 @@ input[type="checkbox"]:indeterminate {
 
 .settings-panel {
   min-height: 0;
-  padding: 8px 2px;
+  padding: 6px 2px 8px;
   overflow: auto;
   flex: 1;
 }

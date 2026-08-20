@@ -1,5 +1,4 @@
 import { CONFIG_EVENT, STORAGE_KEY } from "../utils/constants";
-import { getDefaultRegionIds, loadNodeData, resolveDomains } from "../utils/nodes";
 import type { CdnRuntimeConfig, CdnSettings } from "../utils/types";
 
 const matches = [
@@ -29,18 +28,7 @@ export default defineContentScript({
     const stored = (await browser.storage.local.get(STORAGE_KEY))[STORAGE_KEY] as
       | CdnSettings
       | undefined;
-    const enabled = Boolean(stored?.enabled && stored.activeDomains?.length);
-    let domains = enabled ? stored?.activeDomains : [];
-
-    if (enabled && !domains) {
-      const data = await loadNodeData();
-      const selectedRegionIds = stored?.selectedRegionIds?.length
-        ? stored.selectedRegionIds
-        : getDefaultRegionIds(data);
-      domains = stored?.selectedDomains?.length
-        ? stored.selectedDomains
-        : resolveDomains(data, selectedRegionIds);
-    }
+    const domains = stored?.activeDomains ?? [];
 
     await injectScript("/main-world.js", {
       keepInDom: true,
@@ -54,8 +42,7 @@ export default defineContentScript({
       const settings = changes[STORAGE_KEY]?.newValue as CdnSettings | undefined;
       if (Array.isArray(settings?.activeDomains)) {
         const config: CdnRuntimeConfig = {
-          activeDomains:
-            settings.enabled === false ? [] : settings.activeDomains,
+          activeDomains: settings.activeDomains,
         };
         window.dispatchEvent(
           new CustomEvent(CONFIG_EVENT, {
