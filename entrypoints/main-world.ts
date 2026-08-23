@@ -226,6 +226,7 @@ export default defineUnlistedScript(() => {
     "https://api.bilibili.com/x/player/playurl",
     "https://api.bilibili.com/pgc/player/web/playurl",
     "https://api.bilibili.com/pugv/player/web/playurl",
+    "https://api.bilibili.com/x/player/wbi/playurl"
   ];
 
   function getRequestUrl(input: RequestInfo | URL): string {
