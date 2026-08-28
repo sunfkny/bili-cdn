@@ -74,6 +74,8 @@ pnpm compile
 
 节点列表保存在 [`public/bcdn_out.json`](./public/bcdn_out.json)，构建时由 WXT 原样打包到扩展中。
 
+节点通过证书透明度查询、子域名接口、连续编号扩展、DNS 解析和视频请求实测整理。完整流程参见 [`doc/node_discovery.md`](./doc/node_discovery.md)。
+
 数据来源：[Bilibili 自建视频云生态观察](https://blog.hanlin.press/2026/02/Bilibili-Self-hosted-CDN-Overview)。
 
 CDN 类型和替换限制参见 [`doc/CDN.md`](./doc/CDN.md)。

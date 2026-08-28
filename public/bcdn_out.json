@@ -62,8 +62,16 @@
                   "status": "available"
                 },
                 {
+                  "domain": "upos-sz-mirrorcosdisp.bilivideo.com",
+                  "status": "available"
+                },
+                {
                   "domain": "upos-sz-mirrorcoso1.bilivideo.com",
                   "status": "available"
+                },
+                {
+                  "domain": "upos-sz-mirrorctos.bilivideo.com",
+                  "status": "unreachable"
                 },
                 {
                   "domain": "upos-sz-mirrorhw.bilivideo.com",
@@ -87,18 +95,26 @@
         },
         {
           "id": "oversea",
-          "name": "海外 Mirror CDN（OV）",
+          "name": "海外 Mirror CDN",
           "scope": "oversea",
           "nodeGroups": [
             {
               "type": "mirror",
               "nodes": [
                 {
+                  "domain": "upos-sz-mirroralibstar1.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
                   "domain": "upos-sz-mirroraliov.bilivideo.com",
                   "status": "available"
                 },
                 {
                   "domain": "upos-sz-mirrorcf1ov.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "upos-sz-mirrorcosbstar.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -122,6 +138,18 @@
               "type": "upos",
               "nodes": [
                 {
+                  "domain": "upos-cs-upcdnbldsa.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "upos-csdfcffe9b.bilivideo.com",
+                  "status": "available"
+                },
+                {
+                  "domain": "upos-hz-uat.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
                   "domain": "upos-sz-302kodo.bilivideo.com",
                   "status": "unreachable"
                 },
@@ -139,6 +167,14 @@
                 },
                 {
                   "domain": "upos-sz-estgoss.bilivideo.com",
+                  "status": "available"
+                },
+                {
+                  "domain": "upos-sz-originalic-kodo.bilivideo.com",
+                  "status": "available"
+                },
+                {
+                  "domain": "upos-sz-originhw-kodo.bilivideo.com",
                   "status": "available"
                 },
                 {
@@ -4416,6 +4452,22 @@
           ]
         },
         {
+          "id": "jssz",
+          "name": "江苏苏州",
+          "scope": "mainland",
+          "nodeGroups": [
+            {
+              "type": "bcache",
+              "nodes": [
+                {
+                  "domain": "ec-jssz-ct-01-02.bilivideo.com",
+                  "status": "available"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "id": "jsyz",
           "name": "江苏扬州",
           "scope": "mainland",
@@ -5483,11 +5535,11 @@
                 }
               ]
             },
-            {
-              "type": "non-bcache",
-              "nodes": [
-                {
-                  "domain": "cn-hncs-cu-live-01.bilivideo.com",
+           {
+              "type": "bcache",
+             "nodes": [
+               {
+                 "domain": "cn-hncs-cu-live-01.bilivideo.com",
                   "status": "unreachable"
                 }
               ]
@@ -5851,16 +5903,28 @@
                   "status": "unreachable"
                 },
                 {
+                  "domain": "cn-lnsy-cu-v-01.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "cn-lnsy-cu-v-02.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
                   "domain": "cn-lnsy-cu-v-03.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "cn-lnsy-cu-v-04.bilivideo.com",
                   "status": "unreachable"
                 }
               ]
             },
-            {
-              "type": "non-bcache",
-              "nodes": [
-                {
-                  "domain": "cn-lnsy-cu-live-04.bilivideo.com",
+           {
+              "type": "bcache",
+             "nodes": [
+               {
+                 "domain": "cn-lnsy-cu-live-04.bilivideo.com",
                   "status": "unreachable"
                 }
               ]
@@ -7001,11 +7065,11 @@
                 }
               ]
             },
-            {
-              "type": "non-bcache",
-              "nodes": [
-                {
-                  "domain": "cn-sh-fx-live-01.bilivideo.com",
+           {
+              "type": "bcache",
+             "nodes": [
+               {
+                 "domain": "cn-sh-fx-live-01.bilivideo.com",
                   "status": "available"
                 },
                 {
@@ -7066,11 +7130,11 @@
                 }
               ]
             },
-            {
-              "type": "non-bcache",
-              "nodes": [
-                {
-                  "domain": "cn-tj-fx-live-01.bilivideo.com",
+           {
+              "type": "bcache",
+             "nodes": [
+               {
+                 "domain": "cn-tj-fx-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7362,6 +7426,34 @@
                 {
                   "domain": "cn-gzgy-gd-bcache-03.bilivideo.com",
                   "status": "unreachable"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "hb",
+          "name": "河北",
+          "scope": "mainland",
+          "nodeGroups": [
+            {
+              "type": "bcache",
+              "nodes": [
+                {
+                  "domain": "cn-hb-gd-01-01.bilivideo.com",
+                  "status": "available"
+                },
+                {
+                  "domain": "cn-hb-gd-01-02.bilivideo.com",
+                  "status": "available"
+                },
+                {
+                  "domain": "cn-hb-gd-01-03.bilivideo.com",
+                  "status": "available"
+                },
+                {
+                  "domain": "cn-hb-gd-01-04.bilivideo.com",
+                  "status": "available"
                 }
               ]
             }
@@ -7700,11 +7792,11 @@
           "name": "安徽芜湖",
           "scope": "mainland",
           "nodeGroups": [
-            {
-              "type": "non-bcache",
-              "nodes": [
-                {
-                  "domain": "cn-ahwh-office-live-01.bilivideo.com",
+           {
+              "type": "office",
+             "nodes": [
+               {
+                 "domain": "cn-ahwh-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7728,11 +7820,11 @@
           "name": "北京",
           "scope": "mainland",
           "nodeGroups": [
-            {
-              "type": "non-bcache",
-              "nodes": [
-                {
-                  "domain": "cn-bj-office-live-01.bilivideo.com",
+           {
+              "type": "office",
+             "nodes": [
+               {
+                 "domain": "cn-bj-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7748,11 +7840,11 @@
           "name": "杭州(BLG电子竞技俱乐部)",
           "scope": "mainland",
           "nodeGroups": [
-            {
-              "type": "non-bcache",
-              "nodes": [
-                {
-                  "domain": "cn-blg-office-live-01.bilivideo.com",
+           {
+              "type": "office",
+             "nodes": [
+               {
+                 "domain": "cn-blg-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7768,11 +7860,11 @@
           "name": "重庆(猫耳FM)",
           "scope": "mainland",
           "nodeGroups": [
-            {
-              "type": "non-bcache",
-              "nodes": [
-                {
-                  "domain": "cn-cqmaoer-office-live-01.bilivideo.com",
+           {
+              "type": "office",
+             "nodes": [
+               {
+                 "domain": "cn-cqmaoer-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 }
               ]
@@ -7784,11 +7876,11 @@
           "name": "广东广州",
           "scope": "mainland",
           "nodeGroups": [
-            {
-              "type": "non-bcache",
-              "nodes": [
-                {
-                  "domain": "cn-gdgz-office-live-01.bilivideo.com",
+           {
+              "type": "office",
+             "nodes": [
+               {
+                 "domain": "cn-gdgz-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7804,11 +7896,11 @@
           "name": "湖北武汉",
           "scope": "mainland",
           "nodeGroups": [
-            {
-              "type": "non-bcache",
-              "nodes": [
-                {
-                  "domain": "cn-hbwh-office-live-01.bilivideo.com",
+           {
+              "type": "office",
+             "nodes": [
+               {
+                 "domain": "cn-hbwh-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7832,11 +7924,11 @@
           "name": "江苏南京",
           "scope": "mainland",
           "nodeGroups": [
-            {
-              "type": "non-bcache",
-              "nodes": [
-                {
-                  "domain": "cn-jsnj-office-live-01.bilivideo.com",
+           {
+              "type": "office",
+             "nodes": [
+               {
+                 "domain": "cn-jsnj-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7860,11 +7952,11 @@
           "name": "四川成都",
           "scope": "mainland",
           "nodeGroups": [
-            {
-              "type": "non-bcache",
-              "nodes": [
-                {
-                  "domain": "cn-sccd-office-live-03.bilivideo.com",
+           {
+              "type": "office",
+             "nodes": [
+               {
+                 "domain": "cn-sccd-office-live-03.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7880,15 +7972,19 @@
           "name": "上海",
           "scope": "mainland",
           "nodeGroups": [
-            {
-              "type": "non-bcache",
-              "nodes": [
-                {
-                  "domain": "cn-sh-office-01-01.bilivideo.com",
+           {
+              "type": "office",
+             "nodes": [
+               {
+                 "domain": "cn-sh-office-01-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
                   "domain": "cn-sh-office-01-02.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "cn-sh-office-bcache-01.bilivideo.com",
                   "status": "unreachable"
                 }
               ]
@@ -7900,11 +7996,11 @@
           "name": "浙江杭州",
           "scope": "mainland",
           "nodeGroups": [
-            {
-              "type": "non-bcache",
-              "nodes": [
-                {
-                  "domain": "cn-zjhz-office-live-01.bilivideo.com",
+           {
+              "type": "office",
+             "nodes": [
+               {
+                 "domain": "cn-zjhz-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -8091,6 +8187,208 @@
                 },
                 {
                   "domain": "cn-zjhz-wasu-03-21.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "cn-zjhz3-wasu-bcache-05.bilivideo.com",
+                  "status": "available"
+                },
+                {
+                  "domain": "cn-zjhz3-wasu-bcache-11.bilivideo.com",
+                  "status": "available"
+                },
+                {
+                  "domain": "cn-zjhz3-wasu-bcache-15.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "cn-zjhz3-wasu-bcache-20.bilivideo.com",
+                  "status": "unreachable"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "external",
+      "name": "外建节点",
+      "regions": [
+        {
+          "id": "freeflow",
+          "name": "免流",
+          "scope": "mainland",
+          "nodeGroups": [
+           {
+              "type": "external",
+             "nodes": [
+               {
+                 "domain": "d1--tf-gotcha01-loc.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--tf-gotcha01.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--tf-gotcha04.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--tf-gotcha08.bilivideo.com",
+                  "status": "unreachable"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mainland",
+          "name": "境内",
+          "scope": "mainland",
+          "nodeGroups": [
+           {
+              "type": "external",
+             "nodes": [
+                {
+                  "domain": "c0--cn-gotcha01.bilivideo.com",
+                  "status": "available"
+                },
+                {
+                  "domain": "c1--cn-gotcha09.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "c1--cn-gotcha208.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d0--cn-gotcha01.bilivideo.com",
+                  "status": "available"
+                },
+                {
+                  "domain": "d0--cn-gotcha09.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d0--cn-gotcha208-01.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha04.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha04b.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha07.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha07b.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha09.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha204-1.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha204-2.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha204-3.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha204-4.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha204.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha207.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha208.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha208b.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha209.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha209b.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha211.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--cn-gotcha308.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--p1--cn-gotcha04.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--p2--cn-gotcha04.bilivideo.com",
+                  "status": "unreachable"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "oversea",
+          "name": "海外",
+          "scope": "oversea",
+          "nodeGroups": [
+           {
+              "type": "external",
+             "nodes": [
+               {
+                 "domain": "d1--ov-gotcha05.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--ov-gotcha07.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--ov-gotcha207.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--ov-gotcha207b.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--ov-gotcha208.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--ov-gotcha209.bilivideo.com",
+                  "status": "unreachable"
+                },
+                {
+                  "domain": "d1--ov-gotcha210.bilivideo.com",
                   "status": "unreachable"
                 }
               ]

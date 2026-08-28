@@ -325,11 +325,12 @@ function updateMetrics(domain: string): void {
   }
 
   element.className = `metrics${result ? ` ${result.status}` : " idle"}`;
+  element.title = result?.error ?? "";
   element.replaceChildren();
   if (!result || result.status === "failed") {
     const placeholder = document.createElement("span");
     placeholder.className = "metric-placeholder";
-    placeholder.textContent = result ? "测速失败" : "点击测速";
+    placeholder.textContent = result ? result.error ?? "测速失败" : "点击测速";
     element.append(placeholder);
     return;
   }
@@ -486,7 +487,7 @@ async function benchmarkSingleDomain(domain: string): Promise<void> {
     await saveSettings(nextActiveDomains);
     result.status === "passed" ? updateMetrics(domain) : renderTree();
     if (result.status === "failed") {
-      setStatus(`${domain} 测速失败`, true);
+      setStatus(`${domain} ${result.error ?? "测速失败"}`, true);
     } else {
       const outcome = result.status === "passed" ? "达标" : "未达标";
       setStatus(
@@ -588,7 +589,12 @@ async function benchmarkDomain(
       speedMbps,
       testedAt: Date.now(),
     };
-  } catch {
+  } catch (cause) {
+    if (cause instanceof Error && cause.name === "AbortError") {
+      console.warn(`测速超时：${domain}`, cause);
+      return { domain, status: "failed", error: "请求超时", testedAt: Date.now() };
+    }
+    console.warn(`测速失败：${domain}`, cause);
     return { domain, status: "failed", testedAt: Date.now() };
   } finally {
     clearTimeout(timeout);

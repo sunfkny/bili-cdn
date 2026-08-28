@@ -10,7 +10,7 @@
 | UPOS 对象存储 | `upos-sz-estg*.bilivideo.com` | `upos` | 默认替换为选择的节点 |
 | BCache | `cn-*.bilivideo.com` 或 `cn-*.bilivideo.cn` | `bcache` | 播放信息改写，动态规则兜底 |
 | MCDN | MCDN 域名，或其他域名携带 `os=mcdn` | `mcdn` | 从播放信息移除并在网络层屏蔽 |
-| PCDN 资源 | `http://IP:Port/v1/resource/*` | 不固定 | 播放数据回退逻辑会移除该地址 |
+| PCDN 资源 | `http://IP:Port/v1/resource/*` | 不固定 | 禁止替换 Host，仅允许免流代理 |
 | 免流 | `(upos\|proxy).*-tf-*.bilivideo.com` | 不固定 | 部分签名和免流规则与普通 CDN 不同 |
 
 判断 MCDN 时应同时检查主机名和 `os` 参数。例如，主机名中包含 `mirror` 的地址在携带 `os=mcdn` 时仍属于 MCDN 调度。
@@ -25,7 +25,13 @@
 - `mirrorhw`、`mirrorhwb`、`mirrorhwo1`
 - `mirror08c`、`mirror08h`、`mirror08ct`
 
-海外地址可能包含 `ov`、`bstar`，或使用 `akamaized.net`。部分海外和东南亚地址存在域名签名或参数校验，不能保证更换主机名后仍然可用。本扩展的动态规则仅替换 `bilivideo.com` 下的 Mirror 地址，不处理 Akamai 地址。
+海外地址可能包含 `ov`、`bstar`。部分海外和东南亚地址存在域名签名或参数校验，不能保证更换主机名后仍然可用。
+
+以下节点响应速度过慢，默认排除：
+
+- `upos-sz-mirror08disp.bilivideo.com`
+- `upos-sz-mirrorhwdisp.bilivideo.com`
+- `upos-sze6fcab1avod-hkep.bilivideo.com`
 
 ## UPOS 对象存储
 
@@ -55,7 +61,15 @@ cn-{地区}-{运营商}-{编号}.bilivideo.com
 - `*.edge.mountaintoys.cn`
 - 携带 `os=mcdn` 的 `bilivideo.com` 请求
 
-`/v1/resource/` 类型地址可能缺少普通 CDN 所需的参数，因此不能假定只替换 Host 就能正常播放。
+以下形式的 playurl 属于 MCDN/PCDN 特化资源：
+
+```text
+((([0-9]{1,3}\.){3}[0-9]{1,3})|(.*\.mcdn\.bilivideo\.(com|cn|net))):[0-9]{1,5}/v1/resource
+```
+
+共同特征是 Path 以 `/v1/resource` 开头。此类地址不能替换视频 Host，通常缺少 `trid`，也无法重组为普通 playurl。
+
+此类地址可通过免流域名代理 `proxy-tf-all-ws.bilivideo.com` 访问，例如 `https://proxy-tf-all-ws.bilivideo.com/?url=...`；该域名不是直接视频 CDN，因此不纳入节点列表。
 
 ## 替换限制
 
@@ -63,7 +77,6 @@ cn-{地区}-{运营商}-{编号}.bilivideo.com
 
 - 国内 BCache、UPOS 和部分 MCDN 地址通常可以切换到国内节点。
 - 部分海外 Mirror 地址的签名可能绑定域名。
-- Akamai 地址通常有额外参数校验。
 - `bstar` 地址可能因域名签名在替换后返回错误。
 - 免流地址具有独立的鉴权和流量规则。
 

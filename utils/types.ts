@@ -4,7 +4,7 @@ export interface NodeRecord {
 }
 
 export interface NodeGroupRecord {
-  type: "bcache" | "non-bcache" | "mirror" | "upos";
+  type: "bcache" | "mirror" | "upos" | "office" | "external";
   nodes: NodeRecord[];
 }
 
@@ -42,6 +42,7 @@ export interface CdnRuntimeConfig {
 export interface BenchmarkResult {
   domain: string;
   status: "passed" | "rejected" | "failed";
+  error?: string;
   latencyMs?: number;
   speedMbps?: number;
   testedAt: number;
