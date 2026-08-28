@@ -1,21 +1,29 @@
 export interface NodeRecord {
   domain: string;
+  status: "available" | "unreachable";
 }
 
-export interface RegionRecord {
-  name: string;
+export interface NodeGroupRecord {
+  type: "bcache" | "non-bcache" | "mirror" | "upos";
   nodes: NodeRecord[];
 }
 
-export interface ProviderRecord {
+export interface RegionRecord {
+  id: string;
   name: string;
-  regions: Record<string, RegionRecord>;
+  scope: "mainland" | "oversea";
+  nodeGroups: NodeGroupRecord[];
+}
+
+export interface ProviderRecord {
+  id: string;
+  name: string;
+  regions: RegionRecord[];
 }
 
 export interface BcdnData {
-  generated_at: string;
-  count: number;
-  results: Record<string, ProviderRecord>;
+  schemaVersion: number;
+  providers: ProviderRecord[];
 }
 
 export interface CdnSettings {

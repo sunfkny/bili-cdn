@@ -144,7 +144,13 @@ function createGroupBenchmarkButton(
 }
 
 function getRegionDomains(region: RegionRecord): string[] {
-  return region.nodes.map((node) => node.domain);
+  return getRegionNodes(region).map((node) => node.domain);
+}
+
+function getRegionNodes(region: RegionRecord): NodeRecord[] {
+  return region.nodeGroups.flatMap((group) =>
+    group.nodes.filter((node) => node.status === "available"),
+  );
 }
 
 function setDomainGroup(domains: string[], checked: boolean): void {
@@ -161,14 +167,21 @@ function renderTree(): void {
   nodeElements.clear();
   let visibleProviders = 0;
 
-  for (const [providerId, provider] of Object.entries(data.results)) {
-    const visibleRegions = Object.entries(provider.regions).map(
-      ([regionId, region]) => ({ regionId, region, nodes: region.nodes }),
-    );
+  for (const provider of data.providers) {
+    const providerId = provider.id;
+    const visibleRegions = provider.regions
+      .map((region) => ({
+        regionId: region.id,
+        region,
+        nodes: getRegionNodes(region),
+      }))
+      .filter(({ nodes }) => nodes.length > 0);
     if (visibleRegions.length === 0) continue;
     visibleProviders++;
 
-    const providerDomains = Object.values(provider.regions).flatMap(getRegionDomains);
+    const providerDomains = visibleRegions.flatMap(({ nodes }) =>
+      nodes.map((node) => node.domain),
+    );
     const providerSelected = providerDomains.filter((domain) =>
       selectedDomains.has(domain),
     ).length;
@@ -675,11 +688,14 @@ async function initialize(): Promise<void> {
     ]);
     displayBenchmarkSettings(benchmarkSettings);
     const allDomains = new Set(getAllDomains(data));
-    for (const [providerId, provider] of Object.entries(data.results)) {
-      for (const [regionId, region] of Object.entries(provider.regions)) {
-        const regionKey = `${providerId}/${regionId}`;
-        region.nodes.forEach((node) =>
-          domainLocations.set(node.domain, { providerId, regionKey }),
+    for (const provider of data.providers) {
+      for (const region of provider.regions) {
+        const regionKey = `${provider.id}/${region.id}`;
+        getRegionNodes(region).forEach((node) =>
+            domainLocations.set(node.domain, {
+              providerId: provider.id,
+              regionKey,
+            }),
         );
       }
     }

@@ -2,7 +2,7 @@ export const STORAGE_KEY = "cdnSettings";
 export const BENCHMARK_SETTINGS_KEY = "benchmarkSettings";
 export const CONFIG_EVENT = "bili-cdn:config";
 
-export const DEFAULT_REGION_IDS = ["virtual/mirror"];
+export const DEFAULT_REGION_IDS = ["cloud/mirror"];
 
 // https://www.bilibili.com/video/BV1rp4y1e745/
 export const BENCHMARK_API_URL =
