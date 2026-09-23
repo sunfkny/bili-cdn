@@ -4,15 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "wxt",
-    "dev:firefox": "wxt -b firefox",
-    "build": "wxt build",
-    "build:firefox": "wxt build -b firefox",
+    "dev": "vite",
+    "build": "vite build",
     "compile": "tsc --noEmit",
-    "zip": "wxt zip"
+    "test": "node --test"
   },
   "devDependencies": {
     "typescript": "5.9.3",
-    "wxt": "0.21.4"
+    "vite": "^8.2.1",
+    "vite-plugin-monkey": "^7.1.0"
   }
 }

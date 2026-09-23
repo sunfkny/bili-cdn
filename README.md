@@ -1,81 +1,29 @@
-# Bili CDN
+# Bili CDN 用户脚本
 
-基于 [WXT](https://wxt.dev/) 开发的 Bilibili CDN 节点优选扩展。支持按运营商和地区批量测速，根据延迟与下载速度筛选可用节点，并将视频请求切换到已选 CDN。
+使用 [vite-plugin-monkey](https://github.com/lisonge/vite-plugin-monkey) 构建的 Bilibili CDN 用户脚本。保留原脚本对播放接口响应的改写和请求拦截方式，并提供运营商、地区、节点选择及测速面板。
 
-## 功能
-
-- 按“运营商 → 地区 → 节点”树形选择一组或多组节点。
-- 首次使用时默认选择云服务节点中的 Mirror 型 CDN。
-- 支持地区批量优选和单节点测速，显示延迟、速度及测速状态。
-- 按页面顺序单线程测速，自动展开并定位到当前测速节点。
-- 自动取消不满足延迟或速度要求的节点。
-- 测速参数在弹窗内实时保存。
-- 支持动态拦截媒体请求，节点或开关变化后对后续请求实时生效。
-- 自动从播放信息移除并在网络层屏蔽 MCDN。
-- 提供 Mirror 型 CDN 和 UPOS 型对象存储云服务节点组，可直接测速和选择。
-- 始终改写播放接口数据，动态拦截用于处理遗漏和后续生成的媒体请求。
-
-## 使用方法
-
-1. 打开 Bilibili 页面并点击扩展图标。
-2. 扩展会默认勾选云服务节点中的 Mirror 型 CDN，UPOS 型对象存储默认不选。
-3. 点击地区右侧的“优选”，等待该组节点依次完成测速。
-4. 保留至少一个节点后，Bili CDN 会自动保持开启。
-
-点击节点右侧的测速结果区域，可以只测试该节点。未达标节点会标黄并自动取消勾选，测速失败节点会显示错误状态。
-
-## 设置
-
-| 设置 | 说明 |
-| --- | --- |
-| 动态拦截请求 | 将后续媒体请求实时切换到生效节点，默认开启 |
-| 最大延迟 | 节点允许的最高响应延迟 |
-| 最低速度 | 节点需要达到的最低下载速度 |
-| 时间上限 | 单个节点测速的超时时间 |
-| 测速样本大小 | 每次测速最多下载的数据量，单位为 MB |
-
-## 本地安装
-
-安装依赖并构建 Chromium 扩展：
+## 使用
 
 ```bash
 pnpm install
 pnpm build
 ```
 
-在 Chromium 浏览器的扩展管理页面开启开发者模式，然后加载 `.output/chrome-mv3` 目录。
+把 `dist/bili-cdn.user.js` 安装到 Tampermonkey、Violentmonkey 等用户脚本管理器。开发时运行 `pnpm dev`，类型检查运行 `pnpm compile`。
 
-构建 Firefox 扩展：
+通过播放器右键菜单或用户脚本管理器的“CDN 节点设置”菜单命令打开面板。
 
-```bash
-pnpm build:firefox
-```
+面板内可按运营商、地区或单个节点勾选，也可按地区优选或单独测速。修改选择后，后续播放地址响应立即使用当前节点；已生成的播放地址需要重新加载视频。取消全部节点时，脚本停止改写播放地址。
 
-## 开发
+测速使用页面原生 `fetch` 获取节点数据。默认使用当前视频的地址测速，也可在测速设置中切换到固定测试视频。首次读到数据的时间作为首包延迟；下载速度按收到的字节数和整次请求耗时计算。默认测速样本为 4 MB，超时 3 秒。
 
-```bash
-pnpm install
-pnpm dev
-```
+首次安装默认选择云服务节点中的 Mirror 型 CDN。[`src/bcdn_out.json`](./src/bcdn_out.json) 保留完整采集记录；构建时只提取可用节点，并将层级改为数组、去掉域名公共后缀、合并连续数字域名。运行时还原为面板使用的数据结构。节点选择保存在用户脚本管理器的 `selectedCdnDomains` 设置中。节点采集流程见 [`doc/node_discovery.md`](./doc/node_discovery.md)。
 
-Firefox 开发模式：
+## 代码结构
 
-```bash
-pnpm dev:firefox
-```
-
-检查 TypeScript 类型：
-
-```bash
-pnpm compile
-```
-
-## 节点数据
-
-节点列表保存在 [`public/bcdn_out.json`](./public/bcdn_out.json)，构建时由 WXT 原样打包到扩展中。
-
-节点通过证书透明度查询、子域名接口、连续编号扩展、DNS 解析和视频请求实测整理。完整流程参见 [`doc/node_discovery.md`](./doc/node_discovery.md)。
-
-数据来源：[Bilibili 自建视频云生态观察](https://blog.hanlin.press/2026/02/Bilibili-Self-hosted-CDN-Overview)。
-
-CDN 类型和替换限制参见 [`doc/CDN.md`](./doc/CDN.md)。
+- `src/main.ts`：用户脚本入口与菜单命令。
+- `src/interceptor.ts`、`src/play-info.ts`：播放请求拦截及地址转换。
+- `src/domains.ts`：当前域名和首次安装的默认域名。
+- `src/cdn-panel.ts`、`src/cdn-panel.css`：层级节点面板。
+- `src/benchmark.ts`、`src/transfer-metrics.ts`：节点测速及速度计算。
+- `src/node-data-codec.ts`、`vite.config.ts`：压缩完整节点记录并在用户脚本中还原。
