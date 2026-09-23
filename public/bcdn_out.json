@@ -123,7 +123,7 @@
                 },
                 {
                   "domain": "upos-sz-mirrorcosov.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 }
               ]
             }
@@ -1083,7 +1083,7 @@
                 },
                 {
                   "domain": "cn-cq-cm-01-13.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-cm-01-14.bilivideo.com",
@@ -1147,19 +1147,19 @@
               "nodes": [
                 {
                   "domain": "cn-fjqz-cm-01-01.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-fjqz-cm-01-02.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-fjqz-cm-01-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-fjqz-cm-01-04.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-fjqz-cm-01-05.bilivideo.com",
@@ -1167,19 +1167,19 @@
                 },
                 {
                   "domain": "cn-fjqz-cm-01-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-fjqz-cm-01-07.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-fjqz-cm-01-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-fjqz-cm-01-09.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-fjqz-cm-01-10.bilivideo.com",
@@ -1199,23 +1199,23 @@
               "nodes": [
                 {
                   "domain": "cn-gddg-cm-01-02.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-04.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-10.bilivideo.com",
@@ -1231,51 +1231,51 @@
                 },
                 {
                   "domain": "cn-gddg-cm-01-13.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-14.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-18.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-19.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-20.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-21.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-22.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-23.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-24.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-25.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-26.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cm-01-27.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cmcc-v-01.bilivideo.com",
@@ -1283,23 +1283,23 @@
                 },
                 {
                   "domain": "cn-gddg-cmcc-v-02.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cmcc-v-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cmcc-v-04.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cmcc-v-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gddg-cmcc-v-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 }
               ]
             }
@@ -1315,7 +1315,7 @@
               "nodes": [
                 {
                   "domain": "cn-gdjm-cm-01-01.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gdjm-cm-01-02.bilivideo.com",
@@ -1323,27 +1323,27 @@
                 },
                 {
                   "domain": "cn-gdjm-cm-01-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gdjm-cm-01-04.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gdjm-cm-01-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gdjm-cm-01-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gdjm-cm-01-07.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gdjm-cm-01-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-gdjm-cm-01-09.bilivideo.com",
@@ -1367,15 +1367,15 @@
               "nodes": [
                 {
                   "domain": "cn-hbsjz-cm-02-01.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz-cm-02-02.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz-cm-02-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz-cm-02-04.bilivideo.com",
@@ -1383,7 +1383,7 @@
                 },
                 {
                   "domain": "cn-hbsjz-cm-02-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz-cm-02-06.bilivideo.com",
@@ -1391,35 +1391,35 @@
                 },
                 {
                   "domain": "cn-hbsjz-cm-02-07.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz-cm-02-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz-cm-02-09.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz-cm-02-10.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz-cm-02-11.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz-cm-02-12.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz-cm-02-13.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz-cm-02-14.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz-cm-02-15.bilivideo.com",
@@ -1431,15 +1431,15 @@
                 },
                 {
                   "domain": "cn-hbsjz2-cmcc-bcache-01.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz2-cmcc-bcache-02.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz2-cmcc-bcache-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz2-cmcc-bcache-04.bilivideo.com",
@@ -1447,7 +1447,7 @@
                 },
                 {
                   "domain": "cn-hbsjz2-cmcc-bcache-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz2-cmcc-bcache-06.bilivideo.com",
@@ -1455,35 +1455,35 @@
                 },
                 {
                   "domain": "cn-hbsjz2-cmcc-bcache-07.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz2-cmcc-bcache-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz2-cmcc-bcache-09.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz2-cmcc-bcache-10.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz2-cmcc-bcache-11.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz2-cmcc-bcache-12.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz2-cmcc-bcache-13.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbsjz2-cmcc-bcache-14.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 }
               ]
             }
@@ -1499,31 +1499,31 @@
               "nodes": [
                 {
                   "domain": "cn-hbwh-cm-01-01.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-02.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-04.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-07.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-08.bilivideo.com",
@@ -1531,27 +1531,27 @@
                 },
                 {
                   "domain": "cn-hbwh-cm-01-09.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-10.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-11.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-12.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-13.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-14.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-15.bilivideo.com",
@@ -1559,23 +1559,23 @@
                 },
                 {
                   "domain": "cn-hbwh-cm-01-16.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-17.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-18.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-19.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-20.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cm-01-21.bilivideo.com",
@@ -1591,51 +1591,51 @@
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-01.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-02.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-04.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-07.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-09.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-10.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-11.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-12.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-13.bilivideo.com",
@@ -1643,23 +1643,23 @@
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-14.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-15.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-16.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-17.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbwh-cmcc-bcache-18.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 }
               ]
             }
@@ -1691,7 +1691,7 @@
                 },
                 {
                   "domain": "cn-hncs-cm-03-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hncs-cm-03-06.bilivideo.com",
@@ -1703,7 +1703,7 @@
                 },
                 {
                   "domain": "cn-hncs-cm-03-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hncs-cm-03-09.bilivideo.com",
@@ -1711,11 +1711,11 @@
                 },
                 {
                   "domain": "cn-hncs-cm-03-11.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hncs-cm-03-12.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hncs-cm-03-13.bilivideo.com",
@@ -1795,39 +1795,39 @@
               "nodes": [
                 {
                   "domain": "cn-hnzz-cm-01-01.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cm-01-02.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cm-01-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cm-01-04.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cm-01-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cm-01-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cm-01-09.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cm-01-10.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cm-01-11.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cm-01-12.bilivideo.com",
@@ -1835,19 +1835,19 @@
                 },
                 {
                   "domain": "cn-hnzz-cm-01-13.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cm-01-14.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cm-01-15.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cm-01-16.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cmcc-v-03.bilivideo.com",
@@ -1859,43 +1859,43 @@
                 },
                 {
                   "domain": "cn-hnzz-cmcc-v-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cmcc-v-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cmcc-v-07.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cmcc-v-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cmcc-v-09.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cmcc-v-10.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cmcc-v-11.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cmcc-v-12.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cmcc-v-13.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hnzz-cmcc-v-14.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 }
               ]
             }
@@ -2055,7 +2055,7 @@
                 },
                 {
                   "domain": "cn-jssz-cm-02-17.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-jssz-cm-02-18.bilivideo.com",
@@ -2131,7 +2131,7 @@
                 },
                 {
                   "domain": "cn-jssz-cm-02-40.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-jssz-cm-02-41.bilivideo.com",
@@ -2151,7 +2151,7 @@
                 },
                 {
                   "domain": "cn-jssz-cm-02-45.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-jssz-cm-02-46.bilivideo.com",
@@ -2239,7 +2239,7 @@
                 },
                 {
                   "domain": "cn-jssz-cmcc-v-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-jssz-cmcc-v-06.bilivideo.com",
@@ -2495,23 +2495,23 @@
                 },
                 {
                   "domain": "cn-lnsy-cm-01-02.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-lnsy-cm-01-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-lnsy-cm-01-04.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-lnsy-cm-01-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-lnsy-cm-01-09.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-lnsy-cm-01-10.bilivideo.com",
@@ -2527,15 +2527,15 @@
                 },
                 {
                   "domain": "cn-lnsy-cmcc-v-02.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-lnsy-cmcc-v-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-lnsy-cmcc-v-04.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-lnsy-cmcc-v-05.bilivideo.com",
@@ -2543,11 +2543,11 @@
                 },
                 {
                   "domain": "cn-lnsy-cmcc-v-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-lnsy-cmcc-v-07.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 }
               ]
             }
@@ -2587,35 +2587,35 @@
               "nodes": [
                 {
                   "domain": "cn-sccd-cm-03-01.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd-cm-03-02.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd-cm-03-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd-cm-03-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd-cm-03-07.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd-cm-03-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd-cm-03-09.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd-cm-03-10.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd-cm-03-11.bilivideo.com",
@@ -2623,27 +2623,27 @@
                 },
                 {
                   "domain": "cn-sccd-cm-03-12.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd-cm-03-13.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd-cm-03-16.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd-cm-03-17.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd-cm-03-18.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd-cm-03-22.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd-cm-03-23.bilivideo.com",
@@ -2663,19 +2663,19 @@
                 },
                 {
                   "domain": "cn-sccd3-cmcc-v-04.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd3-cmcc-v-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd3-cmcc-v-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd3-cmcc-v-07.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd3-cmcc-v-09.bilivideo.com",
@@ -2683,31 +2683,31 @@
                 },
                 {
                   "domain": "cn-sccd3-cmcc-v-10.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd3-cmcc-v-13.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd3-cmcc-v-14.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd3-cmcc-v-15.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd3-cmcc-v-16.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd3-cmcc-v-17.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sccd3-cmcc-v-18.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 }
               ]
             }
@@ -2723,47 +2723,47 @@
               "nodes": [
                 {
                   "domain": "cn-sdjn-cm-02-01.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sdjn-cm-02-02.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sdjn-cm-02-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sdjn-cm-02-04.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sdjn-cm-02-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sdjn-cm-02-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sdjn-cm-02-07.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sdjn-cm-02-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sdjn-cm-02-09.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sdjn-cm-02-10.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sdjn-cm-02-11.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sdjn-cm-02-12.bilivideo.com",
@@ -2771,7 +2771,7 @@
                 },
                 {
                   "domain": "cn-sdjn-cm-02-13.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sdjn-cm-02-14.bilivideo.com",
@@ -2779,7 +2779,7 @@
                 },
                 {
                   "domain": "cn-sdjn2-cmcc-v-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 }
               ]
             }
@@ -2795,27 +2795,27 @@
               "nodes": [
                 {
                   "domain": "cn-sxxa-cm-01-01.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sxxa-cm-01-02.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sxxa-cm-01-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sxxa-cm-01-04.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sxxa-cm-01-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sxxa-cm-01-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sxxa-cm-01-07.bilivideo.com",
@@ -2823,19 +2823,19 @@
                 },
                 {
                   "domain": "cn-sxxa-cm-01-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sxxa-cm-01-09.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sxxa-cm-01-11.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sxxa-cm-01-12.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sxxa-cm-01-13.bilivideo.com",
@@ -2995,23 +2995,23 @@
                 },
                 {
                   "domain": "cn-zjhz-cm-01-07.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cm-01-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cm-01-11.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cm-01-12.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cm-01-13.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cm-01-14.bilivideo.com",
@@ -3023,11 +3023,11 @@
                 },
                 {
                   "domain": "cn-zjhz-cm-01-16.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cm-01-17.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cm-01-18.bilivideo.com",
@@ -3035,7 +3035,7 @@
                 },
                 {
                   "domain": "cn-zjhz-cm-01-19.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cm-01-20.bilivideo.com",
@@ -3059,7 +3059,7 @@
                 },
                 {
                   "domain": "cn-zjhz-cm-01-25.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cm-01-26.bilivideo.com",
@@ -3071,7 +3071,7 @@
                 },
                 {
                   "domain": "cn-zjhz-cm-01-28.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cm-01-29.bilivideo.com",
@@ -3087,23 +3087,23 @@
                 },
                 {
                   "domain": "cn-zjhz-cmcc-v-07.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cmcc-v-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cmcc-v-11.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cmcc-v-12.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cmcc-v-13.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cmcc-v-14.bilivideo.com",
@@ -3115,11 +3115,11 @@
                 },
                 {
                   "domain": "cn-zjhz-cmcc-v-16.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cmcc-v-17.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-zjhz-cmcc-v-18.bilivideo.com",
@@ -3241,7 +3241,7 @@
               "nodes": [
                 {
                   "domain": "cn-cq-ct-01-01.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-02.bilivideo.com",
@@ -3249,19 +3249,19 @@
                 },
                 {
                   "domain": "cn-cq-ct-01-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-04.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-07.bilivideo.com",
@@ -3269,19 +3269,19 @@
                 },
                 {
                   "domain": "cn-cq-ct-01-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-09.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-10.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-11.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-12.bilivideo.com",
@@ -3289,15 +3289,15 @@
                 },
                 {
                   "domain": "cn-cq-ct-01-13.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-14.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-15.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-16.bilivideo.com",
@@ -3305,23 +3305,23 @@
                 },
                 {
                   "domain": "cn-cq-ct-01-17.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-18.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-19.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-20.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-21.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-22.bilivideo.com",
@@ -3329,7 +3329,7 @@
                 },
                 {
                   "domain": "cn-cq-ct-01-23.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-01-24.bilivideo.com",
@@ -3381,7 +3381,7 @@
                 },
                 {
                   "domain": "cn-cq-ct-02-01.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-cq-ct-02-02.bilivideo.com",
@@ -3833,115 +3833,115 @@
               "nodes": [
                 {
                   "domain": "cn-hbyc-ct-01-01.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-02.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-07.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-09.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-10.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-11.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-12.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-13.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-14.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-15.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-16.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-17.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-18.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-19.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-20.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-21.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-22.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-23.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-24.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-25.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-26.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-27.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-28.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-29.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hbyc-ct-01-30.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 }
               ]
             }
@@ -3957,35 +3957,35 @@
               "nodes": [
                 {
                   "domain": "cn-hljheb-ct-01-01.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-hljheb-ct-01-02.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-hljheb-ct-01-03.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-hljheb-ct-01-04.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-hljheb-ct-01-05.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-hljheb-ct-01-06.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-hljheb-ct-01-07.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-hljheb-ct-01-08.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-hljheb-ct-01-11.bilivideo.com",
@@ -5535,11 +5535,11 @@
                 }
               ]
             },
-           {
+            {
               "type": "bcache",
-             "nodes": [
-               {
-                 "domain": "cn-hncs-cu-live-01.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "cn-hncs-cu-live-01.bilivideo.com",
                   "status": "unreachable"
                 }
               ]
@@ -5920,11 +5920,11 @@
                 }
               ]
             },
-           {
+            {
               "type": "bcache",
-             "nodes": [
-               {
-                 "domain": "cn-lnsy-cu-live-04.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "cn-lnsy-cu-live-04.bilivideo.com",
                   "status": "unreachable"
                 }
               ]
@@ -6201,39 +6201,39 @@
               "nodes": [
                 {
                   "domain": "cn-sxty-cu-03-01.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-sxty-cu-03-02.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-sxty-cu-03-03.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-sxty-cu-03-04.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-sxty-cu-03-05.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-sxty-cu-03-06.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-sxty-cu-03-07.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-sxty-cu-03-08.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-sxty-cu-03-09.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-sxty-cu-03-10.bilivideo.com",
@@ -6455,51 +6455,51 @@
                 },
                 {
                   "domain": "cn-hk-eq-01-02.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hk-eq-01-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hk-eq-01-04.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hk-eq-01-05.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hk-eq-01-06.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hk-eq-01-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hk-eq-01-09.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hk-eq-01-10.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hk-eq-01-11.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hk-eq-01-12.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hk-eq-01-13.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-hk-eq-01-14.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 }
               ]
             }
@@ -6529,7 +6529,7 @@
                 },
                 {
                   "domain": "cn-bj-fx-01-03.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-bj-fx-01-04.bilivideo.com",
@@ -7049,11 +7049,11 @@
                 },
                 {
                   "domain": "cn-sh-fx-01-07.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sh-fx-01-08.bilivideo.com",
-                  "status": "available"
+                  "status": "unreachable"
                 },
                 {
                   "domain": "cn-sh-fx-01-09.bilivideo.com",
@@ -7065,11 +7065,11 @@
                 }
               ]
             },
-           {
+            {
               "type": "bcache",
-             "nodes": [
-               {
-                 "domain": "cn-sh-fx-live-01.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "cn-sh-fx-live-01.bilivideo.com",
                   "status": "available"
                 },
                 {
@@ -7130,11 +7130,11 @@
                 }
               ]
             },
-           {
+            {
               "type": "bcache",
-             "nodes": [
-               {
-                 "domain": "cn-tj-fx-live-01.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "cn-tj-fx-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7221,7 +7221,7 @@
                 },
                 {
                   "domain": "cn-cq-gd-01-17.bilivideo.com",
-                  "status": "unreachable"
+                  "status": "available"
                 },
                 {
                   "domain": "cn-cq-gd-01-18.bilivideo.com",
@@ -7792,11 +7792,11 @@
           "name": "安徽芜湖",
           "scope": "mainland",
           "nodeGroups": [
-           {
+            {
               "type": "office",
-             "nodes": [
-               {
-                 "domain": "cn-ahwh-office-live-01.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "cn-ahwh-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7820,11 +7820,11 @@
           "name": "北京",
           "scope": "mainland",
           "nodeGroups": [
-           {
+            {
               "type": "office",
-             "nodes": [
-               {
-                 "domain": "cn-bj-office-live-01.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "cn-bj-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7840,11 +7840,11 @@
           "name": "杭州(BLG电子竞技俱乐部)",
           "scope": "mainland",
           "nodeGroups": [
-           {
+            {
               "type": "office",
-             "nodes": [
-               {
-                 "domain": "cn-blg-office-live-01.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "cn-blg-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7860,11 +7860,11 @@
           "name": "重庆(猫耳FM)",
           "scope": "mainland",
           "nodeGroups": [
-           {
+            {
               "type": "office",
-             "nodes": [
-               {
-                 "domain": "cn-cqmaoer-office-live-01.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "cn-cqmaoer-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 }
               ]
@@ -7876,11 +7876,11 @@
           "name": "广东广州",
           "scope": "mainland",
           "nodeGroups": [
-           {
+            {
               "type": "office",
-             "nodes": [
-               {
-                 "domain": "cn-gdgz-office-live-01.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "cn-gdgz-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7896,11 +7896,11 @@
           "name": "湖北武汉",
           "scope": "mainland",
           "nodeGroups": [
-           {
+            {
               "type": "office",
-             "nodes": [
-               {
-                 "domain": "cn-hbwh-office-live-01.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "cn-hbwh-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7924,11 +7924,11 @@
           "name": "江苏南京",
           "scope": "mainland",
           "nodeGroups": [
-           {
+            {
               "type": "office",
-             "nodes": [
-               {
-                 "domain": "cn-jsnj-office-live-01.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "cn-jsnj-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7952,11 +7952,11 @@
           "name": "四川成都",
           "scope": "mainland",
           "nodeGroups": [
-           {
+            {
               "type": "office",
-             "nodes": [
-               {
-                 "domain": "cn-sccd-office-live-03.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "cn-sccd-office-live-03.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7972,11 +7972,11 @@
           "name": "上海",
           "scope": "mainland",
           "nodeGroups": [
-           {
+            {
               "type": "office",
-             "nodes": [
-               {
-                 "domain": "cn-sh-office-01-01.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "cn-sh-office-01-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -7996,11 +7996,11 @@
           "name": "浙江杭州",
           "scope": "mainland",
           "nodeGroups": [
-           {
+            {
               "type": "office",
-             "nodes": [
-               {
-                 "domain": "cn-zjhz-office-live-01.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "cn-zjhz-office-live-01.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -8220,11 +8220,11 @@
           "name": "免流",
           "scope": "mainland",
           "nodeGroups": [
-           {
+            {
               "type": "external",
-             "nodes": [
-               {
-                 "domain": "d1--tf-gotcha01-loc.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "d1--tf-gotcha01-loc.bilivideo.com",
                   "status": "unreachable"
                 },
                 {
@@ -8248,9 +8248,9 @@
           "name": "境内",
           "scope": "mainland",
           "nodeGroups": [
-           {
+            {
               "type": "external",
-             "nodes": [
+              "nodes": [
                 {
                   "domain": "c0--cn-gotcha01.bilivideo.com",
                   "status": "available"
@@ -8360,11 +8360,11 @@
           "name": "海外",
           "scope": "oversea",
           "nodeGroups": [
-           {
+            {
               "type": "external",
-             "nodes": [
-               {
-                 "domain": "d1--ov-gotcha05.bilivideo.com",
+              "nodes": [
+                {
+                  "domain": "d1--ov-gotcha05.bilivideo.com",
                   "status": "unreachable"
                 },
                 {

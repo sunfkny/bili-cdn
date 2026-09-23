@@ -569,6 +569,7 @@ async function benchmarkDomain(
       headers: {
         Accept: "*/*",
         Range: `bytes=0-${benchmarkSettings.sampleSizeKb * 1024 - 1}`,
+        "User-Agent": window.navigator.userAgent,
       },
       signal: controller.signal,
     });
