@@ -24,6 +24,9 @@ export interface BenchmarkSettings {
   timeoutMs: number;
   sampleSizeKb: number;
   useCurrentVideo: boolean;
+  concurrency: number;
+  testVideo: string;
+  testVideoPart: number;
 }
 
 export interface VideoIds {

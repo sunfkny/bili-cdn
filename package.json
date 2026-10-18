@@ -6,12 +6,16 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "compile": "tsc --noEmit",
-    "test": "node --test"
+    "compile": "tsc --noEmit"
   },
   "devDependencies": {
     "typescript": "5.9.3",
     "vite": "^8.2.1",
     "vite-plugin-monkey": "^7.1.0"
+  },
+  "dependencies": {
+    "fast-percentile": "1.0.0",
+    "flru": "1.0.2",
+    "foxts": "5.9.1"
   }
 }

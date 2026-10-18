@@ -17,14 +17,20 @@ function readDomains(): string[] {
 }
 
 let activeDomains = readDomains();
+const listeners = new Set<() => void>();
+
+export function onDomainsChange(listener: () => void): void { listeners.add(listener); }
 
 export function getDomains(): string[] {
   return activeDomains;
 }
 
 export function setDomains(domains: string[]): void {
-  activeDomains = domains.filter((domain) => available.has(domain));
+  const next = [...new Set(domains.filter((domain) => available.has(domain)))];
+  if (next.length === activeDomains.length && next.every((domain, index) => domain === activeDomains[index])) return;
+  activeDomains = next;
   GM_setValue(storageKey, activeDomains);
+  for (const listener of listeners) listener();
 }
 
 export function getRandomDomain(): string | undefined {

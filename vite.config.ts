@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import monkey from "vite-plugin-monkey";
 import recordedNodes from "./src/bcdn_out.json" with { type: "json" };
 import { packNodeData } from "./src/node-data-codec.ts";
+import { readFileSync } from "node:fs";
 
 const virtualNodeData = "virtual:bcdn-nodes";
 const resolvedNodeData = `\0${virtualNodeData}`;
@@ -9,6 +10,20 @@ const nodeData = packNodeData(recordedNodes);
 
 export default defineConfig({
   plugins: [
+    {
+      name: "bili-cdn:licenses",
+      generateBundle: {
+        order: "post",
+        handler(_options, bundle) {
+          const license = `\n/*! bili-cdn — MIT License.\n${readFileSync(new URL("./LICENSE", import.meta.url), "utf8")}\n*/\n`;
+          for (const output of Object.values(bundle)) {
+            if (!output.fileName.endsWith(".user.js")) continue;
+            if (output.type === "chunk") output.code = output.code.replace("// ==/UserScript==", `// ==/UserScript==${license}`);
+            else if (typeof output.source === "string") output.source = output.source.replace("// ==/UserScript==", `// ==/UserScript==${license}`);
+          }
+        },
+      },
+    },
     {
       name: "bili-cdn:node-data",
       resolveId(id) {
@@ -23,8 +38,8 @@ export default defineConfig({
       userscript: {
         name: "Bilibili CDN切换",
         namespace: "sunfkny",
-        version: "0.2.10",
-        description: "修改哔哩哔哩播放所用 CDN，支持节点选择和测速",
+        version: "0.3.0",
+        description: "哔哩哔哩 CDN 选择、分片并行下载、PCDN 规则与并发测速",
         icon: "https://www.bilibili.com/favicon.ico",
         "run-at": "document-start",
         match: [

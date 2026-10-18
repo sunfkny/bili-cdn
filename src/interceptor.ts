@@ -1,77 +1,123 @@
 import { transformPlayInfo } from "./play-info";
+import { getPlaybackSettings, onPlaybackSettingsChange } from "./playback-settings";
+import { isBlockedMediaUrl } from "./playback-policy";
+import { getDomains, onDomainsChange } from "./domains";
+import { createThreadRipper } from "./thread-ripper/engine";
+import { player, acceptableCandidates } from "./media/player";
+import { defaultCandidate, findCandidate } from "./media/candidates";
+import { findFile, toMediaAddress } from "./media/registry";
+import { parseRangeHeader } from "./network/range";
+import { isDedicatedMediaPath } from "./media/cdn-classify";
+import { PatchedXMLHttpRequest, xhrHooks } from "./network/xhr-override";
 import type { unsafeWindow } from "$";
+import type { XhrSendContext } from "./network/xhr-types";
 
-type Interceptor = (response: any, url: string) => string | boolean | undefined;
 type PageWindow = typeof unsafeWindow & { __playinfo__?: Record<string, any> };
+const playurlPaths = new Set([
+  "/x/player/wbi/playurl", "/x/player/playurl", "/pgc/player/web/v2/playurl",
+  "/pgc/player/web/playurl", "/pugv/player/web/playurl",
+]);
+function isPlayurl(url: string): boolean {
+  const parsed = new URL(url, location.href);
+  return parsed.hostname === "api.bilibili.com" && playurlPaths.has(parsed.pathname);
+}
 
 export function installInterceptor(pageWindow: PageWindow): void {
-  const interceptors: Interceptor[] = [];
-  const interceptNetResponse = (handler: Interceptor): void => { interceptors.push(handler); };
-  const handleInterceptedResponse = (response: any, url: string): any =>
-    interceptors.reduce<any>((modified, handler) => {
-      const result = handler(modified, url);
-      return result ? result : modified;
-    }, response);
+  const nativeFetch = pageWindow.fetch.bind(pageWindow);
+  let engine = createThreadRipper(player, nativeFetch);
+  const reset = (): void => { engine.dispose(); engine = createThreadRipper(player, nativeFetch); };
+  onPlaybackSettingsChange(reset);
+  onDomainsChange(reset);
 
-  const OriginalXMLHttpRequest = pageWindow.XMLHttpRequest;
-  pageWindow.XMLHttpRequest = class extends OriginalXMLHttpRequest {
-    override get responseText(): string {
-      if (this.readyState !== this.DONE) return super.responseText;
-      return handleInterceptedResponse(super.responseText, this.responseURL) as string;
+  function route(href: string): string {
+    const url = new URL(href, pageWindow.location.href);
+    const address = toMediaAddress(url);
+    const file = findFile(address);
+    if (getPlaybackSettings().cdnSelection && getDomains().includes(url.hostname) && isDedicatedMediaPath(url.pathname)) {
+      const chosen = defaultCandidate(acceptableCandidates(file, address), file, performance.now());
+      if (!chosen) throw new DOMException("手选 CDN 不支持 /v1/ 等专用路径，且没有可用的普通播放地址", "NetworkError");
+      return chosen.href;
     }
-    override get response(): any {
-      if (this.readyState !== this.DONE) return super.response;
-      return handleInterceptedResponse(super.response, this.responseURL);
+    if (!file && address.class === "unknown") return href;
+    const candidates = acceptableCandidates(file, address);
+    const requested = findCandidate(candidates, address);
+    const chosen = requested && player.isCandidateUsable(requested, file, performance.now(), Date.now() / 1000)
+      ? requested : defaultCandidate(candidates, file, performance.now());
+    if (!chosen) throw new DOMException("CDN 选择或 PCDN 规则未留下可用播放地址", "NetworkError");
+    return chosen.href;
+  }
+
+  xhrHooks.open.add(args => {
+    args[1] = route(String(args[1]));
+    return args;
+  });
+  xhrHooks.response.add((_method, url, response, xhr) => {
+    if (xhr.readyState !== xhr.DONE || !isPlayurl(String(url))) return response;
+    const json = typeof response === "string" ? JSON.parse(response) : response;
+    if (!json || typeof json !== "object") return response;
+    transformPlayInfo(json);
+    return typeof response === "string" ? JSON.stringify(json) : json;
+  });
+  xhrHooks.send.add((ctx: XhrSendContext) => {
+    if (ctx.method !== "GET" || !ctx.async || ctx.responseType !== "arraybuffer"
+      || ctx.body != null || ctx.withCredentials || ctx.hasUrlCredentials) return null;
+    const address = toMediaAddress(new URL(ctx.url));
+    const file = findFile(address);
+    if (!file && address.class === "unknown") return null;
+    const candidates = acceptableCandidates(file, address);
+    if (!findCandidate(candidates, address)) return sink => sink.error();
+    const ranges = ctx.headers.filter(([name]) => name === "range");
+    const range = ranges.length === 1 ? parseRangeHeader(ranges[0][1]) : null;
+    const eligible = ctx.headers.every(([name]) => name === "range" || name === "accept");
+    const responder = getPlaybackSettings().threadRipper && eligible
+      ? engine.serve({ ctx, range, file, candidates, requested: findCandidate(candidates, address) }) : null;
+    if (responder) return responder;
+    if (!getPlaybackSettings().blockPcdn && !getPlaybackSettings().cdnSelection) return null;
+    return sink => {
+      void nativeFetch(ctx.url, {
+        headers: Object.fromEntries(ctx.headers), signal: sink.signal, credentials: "omit", mode: "cors",
+      }).then(async response => {
+        if (isBlockedMediaUrl(response.url || ctx.url, getPlaybackSettings(), getDomains())) {
+          void response.body?.cancel().catch(() => undefined);
+          throw new Error("媒体重定向不符合 CDN 选择或 PCDN 规则");
+        }
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        sink.headersReceived(response.status, [...response.headers], response.statusText);
+        sink.done(await response.arrayBuffer());
+      }).catch(() => sink.error());
+    };
+  });
+  pageWindow.XMLHttpRequest = PatchedXMLHttpRequest;
+  pageWindow.fetch = async (input, init) => {
+    const href = typeof input === "string" ? input : "url" in input ? input.url : input.href;
+    const routed = route(href);
+    const request = typeof input === "object" && "url" in input && routed !== href ? new Request(routed, input) : routed === href ? input : routed;
+    const response = await nativeFetch(request, init);
+    const address = toMediaAddress(new URL(routed, pageWindow.location.href));
+    if ((findFile(address) || address.class !== "unknown") && isBlockedMediaUrl(response.url || routed, getPlaybackSettings(), getDomains())) {
+      void response.body?.cancel().catch(() => undefined);
+      throw new TypeError("媒体重定向不符合 CDN 选择或 PCDN 规则");
+    }
+    if (!isPlayurl(href) || !response.ok) return response;
+    try {
+      const json = await response.clone().json();
+      transformPlayInfo(json);
+      const headers = new Headers(response.headers);
+      headers.delete("content-length");
+      headers.delete("content-encoding");
+      return new Response(JSON.stringify(json), { status: response.status, statusText: response.statusText, headers });
+    } catch (cause) {
+      console.warn("[BiliCDN] 播放信息处理失败", cause);
+      return response;
     }
   };
 
-  const OriginalFetch = pageWindow.fetch;
-  pageWindow.fetch = (input, init) =>
-    !handleInterceptedResponse(null, input as string)
-      ? OriginalFetch(input, init)
-      : OriginalFetch(input, init).then((response) => {
-          const contentType = response.headers.get("content-type") ?? "";
-          if (!contentType.includes("application/json")) return response;
-          return new Promise<Response>((resolve) =>
-            response.text().then((body) =>
-              resolve(new Response(handleInterceptedResponse(body, input as string) as string, {
-                status: response.status,
-                statusText: response.statusText,
-                headers: response.headers,
-              })),
-            ),
-          );
-        });
-
-  interceptNetResponse((response, url) => {
-    if (response === null) return true;
-    if (
-      url.startsWith("https://api.bilibili.com/x/player/wbi/playurl") ||
-      url.startsWith("https://api.bilibili.com/pgc/player/web/v2/playurl") ||
-      url.startsWith("https://api.bilibili.com/x/player/playurl") ||
-      url.startsWith("https://api.bilibili.com/pgc/player/web/playurl") ||
-      url.startsWith("https://api.bilibili.com/pugv/player/web/playurl")
-    ) {
-      console.log("[BiliCDNSwitcher]: (Intercepted) playurl api response.");
-      const playInfo = JSON.parse(response);
-      console.debug("[BiliCDNSwitcher]:", playInfo);
-      transformPlayInfo(playInfo);
-      return JSON.stringify(playInfo);
-    }
-    return undefined;
-  });
-
-  if (pageWindow.__playinfo__) {
-    console.log("[BiliCDNSwitcher]: Directly modify the window.__playinfo__");
-    transformPlayInfo(pageWindow.__playinfo__);
-  }
-  let internalPlayInfo = pageWindow.__playinfo__;
-  Object.defineProperty(pageWindow, "__playinfo__", {
-    get: () => internalPlayInfo,
-    set: (value: Record<string, any>) => {
-      console.log("[BiliCDNSwitcher]: Property set window.__playinfo__");
-      transformPlayInfo(value);
-      internalPlayInfo = value;
-    },
+  let playInfo = pageWindow.__playinfo__;
+  if (playInfo) transformPlayInfo(playInfo);
+  const descriptor = Object.getOwnPropertyDescriptor(pageWindow, "__playinfo__");
+  if (!descriptor || descriptor.configurable) Object.defineProperty(pageWindow, "__playinfo__", {
+    configurable: true,
+    get: () => playInfo,
+    set: (value: Record<string, any>) => { transformPlayInfo(value); playInfo = value; },
   });
 }
